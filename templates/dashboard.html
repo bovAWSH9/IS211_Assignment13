@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>DashBoard</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="content" margin="0 auto">
+    <h1>Students </h1>
+
+    <form action="/student/add" method="POST" id="form1">
+
+    </form>
+
+    <form action="/quiz/add" method="POST" id="form2">
+
+    </form>
+
+    <form action="/results/add" method="POST" id="form3">
+
+    </form>
+    <table border-collapse="collapse" border=1px solid #aaa;>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Action</th>
+        </tr>
+        {% for id,firstname,lastname in students %}
+        <tr>
+            <td>{{ id }}</td>
+            <td>{{ firstname }}</td>
+            <td>{{ lastname }}</td>
+            <td>
+                <a href="/student/{{id}}">View Quizzes Result</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <button type="submit" form="form1" value="Add new Student">Add new Student</button>
+
+    <h1>Quizzes </h1>
+
+    <table border-collapse="collapse" border=1px solid #aaa;>
+        <tr>
+            <th>ID</th>
+            <th>Subject</th>
+            <th>Number of questions</th>
+            <th>Date</th>
+        </tr>
+        {% for id,subject,number_of_questions,date in quizzes %}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{subject}}</td>
+            <td>{{number_of_questions}}</td>
+            <td>{{date}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <button type="submit" form="form2" value="Add new Quiz">Add new Quiz</button>
+
+    <br>
+    <button type="submit" form="form3" value="Add new Quiz Result">Add new Quiz Result</button>
+
+</div>
+
+
+{% endblock %}

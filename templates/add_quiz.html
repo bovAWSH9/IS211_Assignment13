@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Add New Quiz</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="content" margin="0 auto">
+    <form action="/quiz/add" method="POST">
+        <label>Subject: </label>
+        <input type="text" name="subject" id="subject" placeholder="subject">
+        <br>
+        <br>
+        <label>Number of Questions: </label>
+        <input type="number" name="number_of_questions" id="number_of_questions" placeholder="last_name">
+        <br>
+        <br>
+
+        <label>Date: </label>
+        <input type="text" name="date" id="date" placeholder="date">
+        <br>
+        <br>
+        <input type="submit" value="Add Quiz">
+    </form>
+    <label color="red">{{ error }}</label>
+
+</div>
+
+
+{% endblock %}

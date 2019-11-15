@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Add student result</title>
+{% endblock %}
+
+{% block body %}
+<div class="content" margin="0 auto">
+
+    <form action="/results/add" method="POST">
+        <label>Student ID</label>
+        <select name="student_id" id="student_id">
+            {% for id in students %}
+            <option value="{{ id }}">{{ id }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+
+         <label>Quiz ID</label>
+        <select name="quiz_id" id="quiz_id">
+            {% for id in quizzes %}
+            <option value="{{ id }}">{{ id }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <label>score: </label>
+        <input type="number" name="score" id="score" placeholder="score">
+        <br>
+        <br>
+        <input type="submit" value="Add new result">
+
+    </form>
+
+</div>
+
+
+{% endblock %}

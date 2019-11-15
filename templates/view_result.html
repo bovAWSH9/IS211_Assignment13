@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>View Student Quizzes</title>
+{% endblock %}
+
+{% block body %}
+<div class="content" margin="0 auto">
+    {% if error=="" %}
+         <table border-collapse="collapse" border=1px solid #aaa;>
+        <tr>
+            <th>Quiz ID</th>
+            <th>score</th>
+
+        </tr>
+        {% for quiz_id,student_id,score in results %}
+        <tr>
+            <td>{{ quiz_id }}</td>
+            <td>{{ score }}</td>
+        </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+
+    {% if error!="" %}
+        <label color="red">{{ error }}</label>
+    {% endif %}
+
+</div>
+
+
+{% endblock %}
